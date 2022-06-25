@@ -22,7 +22,7 @@ const members = [
       { icon: 'twitter', link: 'https://twitter.com/antfu7' }
     ]
   },
-    {
+  {
     avatar: 'https://www.github.com/shengxinjing.png',
     name: '大圣',
     title: '讲师',
