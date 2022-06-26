@@ -4,7 +4,6 @@ import {
   VPTeamPageTitle,
   VPTeamMembers
 } from 'vitepress/theme'
-
 const members = [
   {
     avatar: 'https://www.github.com/antfu.png',
@@ -25,7 +24,8 @@ const members = [
     orgLink:"https://space.bilibili.com/26995758",
     links: [
       { icon: 'github', link: 'https://github.com/shengxinjing' },
-      { icon: 'twitter', link: 'https://twitter.com/shengxj1' }
+      // { icon: 'twitter', link: 'https://twitter.com/shengxj1' },
+      { icon: 'twitter', link: 'https://space.bilibili.com/26995758' },
     ]
   }
 ]
