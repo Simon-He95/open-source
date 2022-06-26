@@ -34,4 +34,4 @@ features:
     details: TypeScript and JSX support 
 ---
 
-<button></button>
+<TeamView />
