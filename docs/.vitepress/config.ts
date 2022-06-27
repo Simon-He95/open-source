@@ -37,26 +37,26 @@ export default {
         {
           text: '开源中好用的第三方库',
           items: [
-            { text: 'eslint', link: '/intro/' },
-            { text: 'pnpm', link: '/intro/' },
-            { text: 'typescript', link: '/intro/' },
-            { text: '命令行工具', link: '/intro/' },
-            { text: '... @todo', link: '/intro/' },
+            { text: 'eslint', link: '/lib/eslint' },
+            { text: 'pnpm', link: '/lib/pnpm' },
+            { text: 'typescript', link: '/lib/typescript' },
+            { text: '命令行工具', link: '/lib/cli' },
+            { text: '... @todo', link: '/lib/' },
 
           ],
         },
         {
           text: '开源项目实战',
           items: [
-            { text: '工具库utils库', link: '/intro/' },
-            { text: 'cli开发 (ni create-vue', link: '/intro/' },
-            { text: '插件开发 （vite', link: '/intro/' },
-            { text: '原子化css框架', link: '/intro/' },
-            { text: 'Vue组件', link: '/intro/' },
-            { text: 'VS Code插件开源', link: '/intro/' },
-            { text: '大型开源项目贡献 （Vite ', link: '/intro/' },
+            { text: '工具库utils库', link: '/project/utils' },
+            { text: 'cli开发 (ni create-vue', link: '/project/cli' },
+            { text: '插件开发 （vite', link: '/project/plugin' },
+            { text: '原子化css框架', link: '/project/css' },
+            { text: 'Vue组件', link: '/project/vue-component' },
+            { text: 'VS Code插件开源', link: '/project/vscode' },
+            { text: '大型开源项目贡献 （Vite ', link: '/project/' },
 
-            { text: '@todo', link: '/intro/' },
+            { text: '@todo', link: '/project/' },
 
           ],
         },
