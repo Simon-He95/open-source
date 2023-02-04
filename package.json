@@ -13,8 +13,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@slidev/cli": "^0.33.1",
-    "@slidev/theme-default": "^0.21.2",
     "case-police": "^0.5.3",
     "vitepress": "1.0.0-alpha.4"
   }
