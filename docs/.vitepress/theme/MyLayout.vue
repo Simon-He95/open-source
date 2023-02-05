@@ -3,12 +3,8 @@ import { reactive, ref } from 'vue'
 import { useData, useRoute, useRouter } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 const data = useData()
-const route = useRoute()
-const router = useRouter()
 const { Layout } = DefaultTheme
-const { theme } = data
 
-const isShowWechat = ref(false)
 
 const course = reactive({
   show: true,
@@ -39,9 +35,7 @@ const course = reactive({
         </p> -->
       </div>
     </template>
-    <template #aside-ads-after>
-      <canvas id="live2d" width="300" height="550" />
-    </template>
+
   </Layout>
 </template>
 
