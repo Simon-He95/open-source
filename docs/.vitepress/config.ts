@@ -1,4 +1,11 @@
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
+const _filename = fileURLToPath(import.meta.url)
+const _dirname = path.dirname(_filename)
+
+console.log(getDirctSidebar('/intro/'))
 export default {
   title: '从零开始做开源',
   description: '可能是东半球最好的开源教程',
@@ -19,11 +26,8 @@ export default {
       '/': [
         {
           text: '开篇',
-          items: [
-            { text: '介绍', link: '/intro/' },
-            { text: '什么是开源', link: '/intro/about' },
-            { text: '为什么要做开源', link: '/guide/why' },
-          ],
+          items: getDirctSidebar('intro')
+
         },
         {
           text: '玩转GitHub',
@@ -73,4 +77,38 @@ export default {
       ],
     },
   }
+}
+
+
+function getDirctSidebar(pathname: string) {
+  const p = path.resolve(_dirname, '../', pathname)
+  if(!fs.existsSync(p)) return []
+  const dirct = fs.readdirSync(p)
+                  .filter(v=>v.endsWith('.md'))
+                  .sort((a, b) => {
+                    if(a==='index.md') return 1
+                    if(a[0]!=='2') return 1
+                    return a>b ? -1 : 1
+                  })
+  return dirct.map(dir=>{
+    const file = fs.readFileSync(path.resolve(p,dir)).toString()
+    let text = dir
+    let lines = file.split('\n')
+    const line = lines.shift() as string
+    if(line.startsWith('# ')){
+      text = line.replace('# ','')
+    }else{
+      if(line.startsWith('---')){
+        const index = lines.findIndex(v=>v.startsWith('---'))
+        lines = lines.slice(index+1).filter(v=>v)
+        if(lines[0].startsWith('# ')){
+          text = lines[0].replace('# ','')
+        }
+      }
+    }
+    return {
+      text,
+      link: `/${pathname}/${dir.replace('.md','')}`
+    }
+  })
 }
