@@ -29,7 +29,7 @@ Anthony & 大圣
    2. javascript / typescript功能实现
    3. eslint代码规范
    4. vitest单元测试
-   5. 打包构建（ESM, Commonjs...)
+   5. 打包构建（ESM, CommonJS...)
    6. 发布和版本管理
    7. 文档编写
    8. github社区协作(issues, pr)
