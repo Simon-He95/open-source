@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url'
 const _filename = fileURLToPath(import.meta.url)
 const _dirname = path.dirname(_filename)
 
-console.log(getDirctSidebar('/intro/'))
+// console.log(getDirctSidebar('/intro/'))
 export default {
   title: '从零开始做开源',
   description: '可能是东半球最好的开源教程',
@@ -26,7 +26,7 @@ export default {
       '/': [
         {
           text: '开篇',
-          items: getDirctSidebar('intro')
+          items: getDirctSidebar('intro'),
 
         },
         {
@@ -53,12 +53,12 @@ export default {
           text: '开源项目实战',
           items: [
             { text: '工具库utils库', link: '/project/utils' },
-            { text: 'cli开发 (ni create-vue', link: '/project/cli' },
-            { text: '插件开发 （vite', link: '/project/plugin' },
+            { text: 'cli开发 (ni create-vue)', link: '/project/cli' },
+            { text: '插件开发 (vite)', link: '/project/plugin' },
             { text: '原子化css框架', link: '/project/css' },
             { text: 'Vue组件', link: '/project/vue-component' },
             { text: 'VS Code插件开源', link: '/project/vscode' },
-            { text: '大型开源项目贡献 （Vite ', link: '/project/' },
+            { text: '大型开源项目贡献 (Vite) ', link: '/project/' },
 
             { text: '@todo', link: '/project/' },
 
@@ -71,44 +71,46 @@ export default {
             { text: '如何宣传你的开源项目', link: '/summary/' },
             { text: '持续维护开源项目', link: '/summary/' },
             { text: '后续彩蛋', link: '/summary/' },
-            
+
           ],
-        }
+        },
       ],
     },
-  }
+  },
 }
-
 
 function getDirctSidebar(pathname: string) {
   const p = path.resolve(_dirname, '../', pathname)
-  if(!fs.existsSync(p)) return []
+  if (!fs.existsSync(p))
+    return []
   const dirct = fs.readdirSync(p)
-                  .filter(v=>v.endsWith('.md'))
-                  .sort((a, b) => {
-                    if(a==='index.md') return 1
-                    if(a[0]!=='2') return 1
-                    return a>b ? -1 : 1
-                  })
-  return dirct.map(dir=>{
-    const file = fs.readFileSync(path.resolve(p,dir)).toString()
+    .filter(v => v.endsWith('.md'))
+    .sort((a, b) => {
+      if (a === 'index.md')
+        return 1
+      if (a[0] !== '2')
+        return 1
+      return a > b ? -1 : 1
+    })
+  return dirct.map((dir) => {
+    const file = fs.readFileSync(path.resolve(p, dir)).toString()
     let text = dir
     let lines = file.split('\n')
     const line = lines.shift() as string
-    if(line.startsWith('# ')){
-      text = line.replace('# ','')
-    }else{
-      if(line.startsWith('---')){
-        const index = lines.findIndex(v=>v.startsWith('---'))
-        lines = lines.slice(index+1).filter(v=>v)
-        if(lines[0].startsWith('# ')){
-          text = lines[0].replace('# ','')
-        }
+    if (line.startsWith('# ')) {
+      text = line.replace('# ', '')
+    }
+    else {
+      if (line.startsWith('---')) {
+        const index = lines.findIndex(v => v.startsWith('---'))
+        lines = lines.slice(index + 1).filter(v => v)
+        if (lines[0].startsWith('# '))
+          text = lines[0].replace('# ', '')
       }
     }
     return {
       text,
-      link: `/${pathname}/${dir.replace('.md','')}`
+      link: `/${pathname}/${dir.replace('.md', '')}`,
     }
   })
 }
