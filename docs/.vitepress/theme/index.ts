@@ -6,9 +6,8 @@ import './index.css'
 
 export default {
   ...Theme,
-  Layout:MyLayout,
+  Layout: MyLayout,
   enhanceApp({ app }) {
-    app.component('TeamView',TeamView)
-  }
+    app.component('TeamView', TeamView)
+  },
 }
-

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref ,onMounted, watch, reactive} from 'vue'
-import { useData, useRoute,useRouter } from 'vitepress';
+import { reactive, ref } from 'vue'
+import { useData, useRoute, useRouter } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 const data = useData()
 const route = useRoute()
@@ -11,24 +11,25 @@ const { theme } = data
 const isShowWechat = ref(false)
 
 const course = reactive({
-  show:true,
-  link:''
+  show: true,
+  link: '',
 })
-
 </script>
 
 <template>
   <Layout>
-    <template #doc-before><slot name="doc-before" />
-      <div class="action" v-if="course.show">
+    <template #doc-before>
+      <slot name="doc-before" />
+      <div v-if="course.show" class="action">
         <a class="course-btn" :href="course.link" target="_blank">课程链接(等上传)</a>
       </div>
-
     </template>
 
     <template #aside-outline-after>
       <div class="about-me">
-        <p class="item">扫码咨询 & 学员群</p>
+        <p class="item">
+          扫码咨询 & 学员群
+        </p>
         <img src="/wechat2.png" alt="">
         <!-- <div class="action" v-if="course.show">
           <a class="course-btn" :href="course.link" target="_blank">课程链接(等上传)</a>
@@ -39,10 +40,11 @@ const course = reactive({
       </div>
     </template>
     <template #aside-ads-after>
-      <canvas id="live2d" width="300" height="550"></canvas>
+      <canvas id="live2d" width="300" height="550" />
     </template>
   </Layout>
 </template>
+
 <style scoped>
 .about-me {
   padding: 16px;
@@ -59,13 +61,12 @@ const course = reactive({
   transition: color 0.25s;
 }
 
-
 .about-me img {
   width: 150px;
   margin-left:-8px;
 }
 </style>
-<!-- 
+<!--
 <template>
   <div v-if="frontmatter.layout !== false" class="Layout">
     <slot name="layout-top" />
